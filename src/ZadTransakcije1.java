@@ -12,11 +12,12 @@ public class ZadTransakcije1 {
             System.out.println("Uspjesno ste spojeni na bazu podataka!");
 
             // try - catch blok za isvrsavanje transakcije
-            try (Statement stmt1 = connection.createStatement(); Statement stmt2 = connection.createStatement()) {
+            try (Statement stmt1 = connection.createStatement();Statement stmt2 = connection.createStatement()) {
                 connection.setAutoCommit(false); // iskljucivanje automatskog commita transakcije
-                stmt1.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = 38.8404 WHERE IDStavka = 8");
-                stmt2.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = 18.8404 WHERE IDStavka = 9");
-
+                stmt1.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu + 10 WHERE IDStavka = 8");
+                stmt2.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu - 10 WHERE IDStavka = 9");
+//                stmt1.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = 28.8404 WHERE IDStavka = 8"); //za reset
+//                stmt2.executeUpdate("UPDATE Stavka SET CijenaPoKomadu = 28.8404 WHERE IDStavka = 9"); //za reset
 
                 connection.commit();
                 System.out.println("Transakcija izvrsena!");
