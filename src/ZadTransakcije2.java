@@ -48,9 +48,9 @@ public class ZadTransakcije2 {
 
     }
 
-    private static double trenutnaCijena(Connection conn, int idStavke) {
+    private static double trenutnaCijena(Connection connection, int idStavke) {
         String sql = "SELECT CijenaPoKomadu FROM Stavka WHERE IDStavka = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setInt(1, idStavke);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
