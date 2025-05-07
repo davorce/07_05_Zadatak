@@ -1,7 +1,7 @@
 BEGIN TRY 
 	BEGIN TRANSACTION
-	UPDATE Stavka SET CijenaPoKomadu = 38.8404 WHERE IDStavka = 8
-	UPDATE Stavka SET CijenaPoKomadu = 18.8404 WHERE IDStavka = 9
+	UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu + 10 WHERE IDStavka = 8
+	UPDATE Stavka SET CijenaPoKomadu = CijenaPoKomadu - 10 WHERE IDStavka = 9
 	COMMIT TRANSACTION
 	PRINT 'Transakcija izvrsena!'
 END TRY
